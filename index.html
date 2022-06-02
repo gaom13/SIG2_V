@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.js "></script>
+    <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 580px;
+            box-shadow: 5px 5px 5px #888;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+
+        var OMS = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+            + 'contributors', 
+            maxZoom: 20
+        });
+        
+        var map = L.map('map', {
+            center: [1.620575222283137, -75.60428021611501],
+            layers: [OMS],
+            zoom: 15
+        });
+
+        L.control.scale()
+        .addTo(map);
+
+        var myIcon = L.icon({
+            iconUrl: 'https://lh4.googleusercontent.com/-g6riZwSTzQg/AAAAAAAAAAI/AAAAAAAAAAA/McnbJy-Y5g8/s88-p-k-no-ns-nd/photo.jpg',
+            iconSize: [30, 30],
+            popupAnchor: [-1, -10]
+        });
+
+        var marker = L.marker([1.620575222283137, -75.60428021611501],{
+            icon: myIcon,
+            draggable: false,
+            title: "Clic para el Detalle"
+        })
+        .addTo(map).bindPopup("Universidad de la Amazonia <b>www.uniamazonia.edu.co.com </b>");
+
+        var circle = L.circle([1.620575222283137, -75.60428021611501], 500, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.2
+        }).addTo(map).bindPopup("EXPLOCIÓN");
+
+        var polygon = L.polygon([
+            [1.611499, -75.609207],
+            [1.612427, -75.608721],
+            [1.612501, -75.608606],
+            [1.612542, -75.608479],
+            [1.612540, -75.608328],
+            [1.612513, -75.608218],
+            [1.612453, -75.608119],
+            [1.612351, -75.608031],
+            [1.612249, -75.607972],
+            [1.612011, -75.607959],
+            [1.611207, -75.608434],
+            [1.611156, -75.608551],
+            [1.611108, -75.608783],
+            [1.611404, -75.609193]
+        ]).addTo(map).bindPopup ('Mercaolid');
+
+        var LineaA =new L.LatLng(1.620575222283137, -75.60428021611501); 
+        var LineaB =new L.LatLng(1.6151369838891252,-75.61387379461554);
+
+        var latlngs = [LineaA, LineaB];
+        var polyline = L.polyline(
+            latlngs, {color: 'red'} 
+        ).addTo(map).bindPopup ('UDLA To Alcadia');
+
+        /*
+        marker.bindTooltip("Universidad de la amazonia",
+        {permanent:false}
+        ).openTooltip();
+
+        var popup = L.popup()
+        .setLatLng([1.620575222283137, -75.60428021611501])
+        .setContent('<p>Hola!<br/>Soy un bonito popup.</p>')
+        .openOn(map);
+        */
+
+    </script>
+</body>
+</html>
