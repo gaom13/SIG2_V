@@ -19,15 +19,15 @@
     <div id="map"></div>
     <script>
 
-        var OMS = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var google_Roads = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
             + 'contributors', 
             maxZoom: 20
-        });
-        
+        }); 
+        //Universidad: 1.620575222283137, -75.60428021611501
         var map = L.map('map', {
-            center: [1.620575222283137, -75.60428021611501],
-            layers: [OMS],
+            center: [1.6208529212056912, -75.60922899789894],
+            layers: [google_Roads],
             zoom: 15
         });
 
@@ -35,8 +35,8 @@
         .addTo(map);
 
         var myIcon = L.icon({
-            iconUrl: 'https://lh4.googleusercontent.com/-g6riZwSTzQg/AAAAAAAAAAI/AAAAAAAAAAA/McnbJy-Y5g8/s88-p-k-no-ns-nd/photo.jpg',
-            iconSize: [30, 30],
+            iconUrl: 'https://cdn-icons.flaticon.com/png/512/2997/premium/2997279.png?token=exp=1654184333~hmac=67344a94abe84dee0865fef9772f460c',
+            iconSize: [20, 20],
             popupAnchor: [-1, -10]
         });
 
@@ -45,50 +45,47 @@
             draggable: false,
             title: "Clic para el Detalle"
         })
-        .addTo(map).bindPopup("Universidad de la Amazonia <b>www.uniamazonia.edu.co.com </b>");
+        .addTo(map).bindPopup("<b>Universidad de la Amazonia</b>");
 
-        var circle = L.circle([1.620575222283137, -75.60428021611501], 500, {
+        myIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/829/829352.png',
+            iconSize: [20, 20],
+            popupAnchor: [-1, -10]
+        });
+
+        var marker = L.marker([1.6151130409037044, -75.61387355950494],{
+            icon: myIcon,
+            draggable: false,
+            title: "Clic para el Detalle"
+        })
+        .addTo(map).bindPopup("<b>Alcadía de Florencia</b>");
+
+        var circle = L.circle([1.6151130409037044, -75.61387355950494], 500, {
             color: 'red',
             fillColor: '#f03',
-            fillOpacity: 0.2
-        }).addTo(map).bindPopup("EXPLOCIÓN");
+            fillOpacity: 0.1
+        }).addTo(map).bindPopup("Radio Alcadia");
+
+        myIcon = L.icon({
+            iconUrl: 'https://cdn-icons.flaticon.com/png/512/1742/premium/1742574.png?token=exp=1654184592~hmac=cf0b8e47be41b1fa446c1fe371cc149c',
+            iconSize: [20, 20],
+            popupAnchor: [-1, -10]
+        });
+
+        var marker = L.marker([1.6149733783911593, -75.61330871159083],{
+            icon: myIcon,
+            draggable: false,
+            title: "Clic para el Detalle"
+        })
+        .addTo(map).bindPopup("<b>Plaza Santander</b>");
 
         var polygon = L.polygon([
-            [1.611499, -75.609207],
-            [1.612427, -75.608721],
-            [1.612501, -75.608606],
-            [1.612542, -75.608479],
-            [1.612540, -75.608328],
-            [1.612513, -75.608218],
-            [1.612453, -75.608119],
-            [1.612351, -75.608031],
-            [1.612249, -75.607972],
-            [1.612011, -75.607959],
-            [1.611207, -75.608434],
-            [1.611156, -75.608551],
-            [1.611108, -75.608783],
-            [1.611404, -75.609193]
-        ]).addTo(map).bindPopup ('Mercaolid');
-
-        var LineaA =new L.LatLng(1.620575222283137, -75.60428021611501); 
-        var LineaB =new L.LatLng(1.6151369838891252,-75.61387379461554);
-
-        var latlngs = [LineaA, LineaB];
-        var polyline = L.polyline(
-            latlngs, {color: 'red'} 
-        ).addTo(map).bindPopup ('UDLA To Alcadia');
-
-        /*
-        marker.bindTooltip("Universidad de la amazonia",
-        {permanent:false}
-        ).openTooltip();
-
-        var popup = L.popup()
-        .setLatLng([1.620575222283137, -75.60428021611501])
-        .setContent('<p>Hola!<br/>Soy un bonito popup.</p>')
-        .openOn(map);
-        */
-
+            [1.6151781430209238, -75.61369796199922],
+            [1.6153940265230724, -75.61304152890172],
+            [1.6147037673501234, -75.6128340846761],
+            [1.6145219706565148, -75.61349620117706]
+        ]).addTo(map).bindPopup ('Poligono Plaza Santander');
+      
     </script>
 </body>
 </html>
