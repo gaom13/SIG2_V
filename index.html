@@ -80,11 +80,57 @@
         .addTo(map).bindPopup("<b>Plaza Santander</b>");
 
         var polygon = L.polygon([
-            [1.6151781430209238, -75.61369796199922],
-            [1.6153940265230724, -75.61304152890172],
-            [1.6147037673501234, -75.6128340846761],
-            [1.6145219706565148, -75.61349620117706]
+        [1.6145404842322766,-75.61344087123871],
+            [1.6147335266033207,-75.61282932758333],
+            [1.6153233781790262,-75.61301171779634],
+            [1.6151356981507732,-75.61362862586975]
         ]).addTo(map).bindPopup ('Poligono Plaza Santander');
+
+        var LineaA =new L.LatLng(1.6207312366808655,-75.61557859182359); 
+        var LineaB =new L.LatLng(1.620758048040582,-75.61483025550844);
+        var LineaC =new L.LatLng(1.6207875405358492,-75.61414092779161);
+        var LineaD =new L.LatLng(1.6207607291765271,-75.61401754617692);
+        var LineaE =new L.LatLng(1.620623991238488,-75.61381101608278);
+        
+        var GlorietaA = new L.LatLng(1.6205462382892148,-75.61382710933687);
+        var GlorietaB = new L.LatLng(1.620452398518865,-75.61384052038194);
+        var GlorietaC = new L.LatLng(1.6203987757910099,-75.61372786760332);
+        var GlorietaD = new L.LatLng(1.620468485336952,-75.61357766389848);
+        var GlorietaE = new L.LatLng(1.6204926155638404,-75.61334431171419);
+        var GlorietaF = new L.LatLng(1.6204095003366852,-75.61001300811769);
+        var GlorietaG = new L.LatLng(1.6203826889723634,-75.60977160930635);
+
+        var PrincipalA= new L.LatLng(1.6203880512452709,-75.61157673597337);
+        var PrincipalB= new L.LatLng(1.6204014569274257,-75.61124950647356);
+        var PrincipalC= new L.LatLng(1.6206186289662292,-75.61026245355608);
+        var PrincipalD= new L.LatLng(1.6205435571529774,-75.61010152101518);
+        var PrincipalE= new L.LatLng(1.619605159252667,-75.60755074024202);
+        var PrincipalF= new L.LatLng(1.6194952326130487,-75.60718327760698);
+        var PrincipalG= new L.LatLng(1.619296828419133,-75.60685604810716);
+        var PrincipalH= new L.LatLng(1.617645246808132,-75.60572683811189);
+        var PrincipalI= new L.LatLng(1.617637203387893,-75.60564637184144);
+        var PrincipalJ= new L.LatLng(1.6177042318888157,-75.60563296079637);
+        var PrincipalK= new L.LatLng(1.6187981367108315,-75.60640007257463);
+        var PrincipalL= new L.LatLng(1.6200475468884095,-75.60520380735399);
+        var PrincipalM= new L.LatLng(1.6177042318888157,-75.60563296079637);
+        
+        var latlngs = [LineaA, LineaB,LineaC,LineaD,LineaE,GlorietaA,GlorietaB,GlorietaC,GlorietaD,GlorietaE,
+                        PrincipalA,PrincipalB,PrincipalC,PrincipalD,GlorietaF,GlorietaG,PrincipalE,PrincipalF,
+                        PrincipalG,PrincipalH,PrincipalI,PrincipalJ,PrincipalK,PrincipalL];
+        var polyline = L.polyline(
+            latlngs, {color: 'red'} 
+        ).addTo(map).bindPopup ('UDLA To Alcadia');
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng) // Sets the geographical point where the popup will open.
+                .setContent("Has hecho click en la coordenada:<br> " +  e.latlng.lat.toString() + "," +  e.latlng.lng.toString()) // Sets the HTML content of the popup.
+                .openOn(map); // Adds the popup to the map and closes the previous one. 
+        }
+
+        map.on('click', onMapClick);
       
     </script>
 </body>
