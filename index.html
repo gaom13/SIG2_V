@@ -36,7 +36,7 @@
 
         var myIcon = L.icon({
             iconUrl: 'https://cdn-icons.flaticon.com/png/512/2997/premium/2997279.png?token=exp=1654184333~hmac=67344a94abe84dee0865fef9772f460c',
-            iconSize: [20, 20],
+            iconSize: [30, 30],
             popupAnchor: [-1, -10]
         });
 
@@ -49,7 +49,7 @@
 
         myIcon = L.icon({
             iconUrl: 'https://cdn-icons-png.flaticon.com/512/829/829352.png',
-            iconSize: [20, 20],
+            iconSize: [30, 30],
             popupAnchor: [-1, -10]
         });
 
@@ -68,7 +68,7 @@
 
         myIcon = L.icon({
             iconUrl: 'https://cdn-icons.flaticon.com/png/512/1742/premium/1742574.png?token=exp=1654184592~hmac=cf0b8e47be41b1fa446c1fe371cc149c',
-            iconSize: [20, 20],
+            iconSize: [30, 30],
             popupAnchor: [-1, -10]
         });
 
@@ -85,6 +85,24 @@
             [1.6153233781790262,-75.61301171779634],
             [1.6151356981507732,-75.61362862586975]
         ]).addTo(map).bindPopup ('Poligono Plaza Santander');
+
+        myIcon = L.icon({
+            iconUrl: 'https://cdn-icons.flaticon.com/png/128/2163/premium/2163350.png?token=exp=1654188248~hmac=1c5d6da54add90bbbb6b9f2bf294e6e9',
+            iconSize: [30, 30],
+            popupAnchor: [-1, -10]
+        });
+
+        var marker = L.marker([1.6207929028076626,-75.6155812740326],{
+            icon: myIcon,
+            draggable: false,
+            title: "Clic para el Detalle"
+        })
+        .addTo(map).bindPopup("<b>Mi Casa</b>");
+
+
+        
+
+
 
         var LineaA =new L.LatLng(1.6207312366808655,-75.61557859182359); 
         var LineaB =new L.LatLng(1.620758048040582,-75.61483025550844);
