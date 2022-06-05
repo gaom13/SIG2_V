@@ -25,18 +25,21 @@
             maxZoom: 20
         }); 
         //Universidad: 1.620575222283137, -75.60428021611501
+        //Plaza Santander: 1.6149372935306503,-75.61314582824708
+        //Alcadia de Florencia: 1.6151130409037044, -75.61387355950494
+        //Mi Casa: 1.6207929028076626,-75.6155812740326
         var map = L.map('map', {
-            center: [1.6208529212056912, -75.60922899789894],
+            center: [1.615891780444508,-75.61313509941102],
             layers: [google_Roads],
-            zoom: 15
+            zoom: 16
         });
 
         L.control.scale()
         .addTo(map);
 
         var myIcon = L.icon({
-            iconUrl: 'https://cdn-icons.flaticon.com/png/512/2997/premium/2997279.png?token=exp=1654184333~hmac=67344a94abe84dee0865fef9772f460c',
-            iconSize: [30, 30],
+            iconUrl: 'https://cdn.icon-icons.com/icons2/3310/PNG/128/student_man_avatar_user_toga_school_university_icon_209264.png',
+            iconSize: [40, 40],
             popupAnchor: [-1, -10]
         });
 
@@ -48,8 +51,8 @@
         .addTo(map).bindPopup("<b>Universidad de la Amazonia</b>");
 
         myIcon = L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/829/829352.png',
-            iconSize: [30, 30],
+            iconUrl: 'https://cdn.icon-icons.com/icons2/1727/PNG/128/3986720-city-hall-hall-icon_112970.png',
+            iconSize: [40, 40],
             popupAnchor: [-1, -10]
         });
 
@@ -67,28 +70,21 @@
         }).addTo(map).bindPopup("Radio Alcadia");
 
         myIcon = L.icon({
-            iconUrl: 'https://cdn-icons.flaticon.com/png/512/1742/premium/1742574.png?token=exp=1654184592~hmac=cf0b8e47be41b1fa446c1fe371cc149c',
-            iconSize: [30, 30],
+            iconUrl: 'https://cdn.icon-icons.com/icons2/2093/PNG/128/park_architecture_and_city_leisure_trees_landscape_nature_icon_128584.png',
+            iconSize: [40, 40],
             popupAnchor: [-1, -10]
         });
 
-        var marker = L.marker([1.6149733783911593, -75.61330871159083],{
+        var marker = L.marker([1.6149372935306503,-75.61314582824708],{
             icon: myIcon,
             draggable: false,
             title: "Clic para el Detalle"
         })
         .addTo(map).bindPopup("<b>Plaza Santander</b>");
 
-        var polygon = L.polygon([
-        [1.6145404842322766,-75.61344087123871],
-            [1.6147335266033207,-75.61282932758333],
-            [1.6153233781790262,-75.61301171779634],
-            [1.6151356981507732,-75.61362862586975]
-        ]).addTo(map).bindPopup ('Poligono Plaza Santander');
-
         myIcon = L.icon({
-            iconUrl: 'https://cdn-icons.flaticon.com/png/128/2163/premium/2163350.png?token=exp=1654188248~hmac=1c5d6da54add90bbbb6b9f2bf294e6e9',
-            iconSize: [30, 30],
+            iconUrl: 'https://cdn.icon-icons.com/icons2/1483/PNG/128/wifihome_102155.png',
+            iconSize: [40, 40],
             popupAnchor: [-1, -10]
         });
 
@@ -97,12 +93,18 @@
             draggable: false,
             title: "Clic para el Detalle"
         })
-        .addTo(map).bindPopup("<b>Mi Casa</b>");
+        .addTo(map).bindPopup("<b>Mi Casa</b>"); 
 
+        var polygon = L.polygon([
+        [1.6145404842322766,-75.61344087123871],
+            [1.6147335266033207,-75.61282932758333],
+            [1.6153233781790262,-75.61301171779634],
+            [1.6151356981507732,-75.61362862586975]
+        ]).addTo(map).bindPopup ('Poligono Plaza Santander');
 
-        
-
-
+        /*
+            Coordenadas desde MiCasa hasta la Universidad de la Amazonia
+        */
 
         var LineaA =new L.LatLng(1.6207312366808655,-75.61557859182359); 
         var LineaB =new L.LatLng(1.620758048040582,-75.61483025550844);
@@ -137,8 +139,14 @@
                         PrincipalG,PrincipalH,PrincipalI,PrincipalJ,PrincipalK,PrincipalL];
         var polyline = L.polyline(
             latlngs, {color: 'red'} 
-        ).addTo(map).bindPopup ('UDLA To Alcadia');
+        ).addTo(map).bindPopup ('MiCasa To UDLA');
 
+
+        /*
+            Evento de OnClick para saber las coordenas X y Y del mapa
+        */
+        
+        /*
         var popup = L.popup();
 
         function onMapClick(e) {
@@ -149,6 +157,7 @@
         }
 
         map.on('click', onMapClick);
+        */
       
     </script>
 </body>
